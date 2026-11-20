@@ -1,0 +1,38 @@
+body {
+  background: radial-gradient(circle at 15% 0%, #182234 0%, #0D1420 55%);
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A3849;
+  border-radius: 4px;
+}
+
+.tab-btn.active {
+  background: #E8A33D;
+  color: #14202B;
+}
+
+.metric-card {
+  transition: border-color .2s ease;
+}
+.metric-card:hover {
+  border-color: rgba(232, 163, 61, .35);
+}
+
+
+.modo-btn {
+  border: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+.modo-btn.active {
+  border-color: #E8A33D;
+}
+
+select option {
+  background: #1C2836;
+  color: #E8E6DE;
+}

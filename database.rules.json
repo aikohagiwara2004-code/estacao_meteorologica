@@ -1,0 +1,40 @@
+{
+  "rules": {
+    "usuarios": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid",
+        "leituras": {
+          "atual": {
+            "latitude":  { ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90" },
+            "longitude": { ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180" },
+            "operador":  { ".validate": "newData.isString() && newData.val().length <= 40" }
+          },
+          "historico": {
+            "$id": {
+              "latitude":  { ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90" },
+              "longitude": { ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180" },
+              "operador":  { ".validate": "newData.isString() && newData.val().length <= 40" }
+            }
+          }
+        },
+        "sessao": {
+          "atual": {
+            "modo":       { ".validate": "newData.val() === 'fixo' || newData.val() === 'celular' || newData.val() === 'gps'" },
+            "latitude":   { ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90" },
+            "longitude":  { ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180" },
+            "nome_local": { ".validate": "newData.isString() && newData.val().length <= 60" }
+          }
+        },
+        "locais": {
+          "$id": {
+            ".validate": "newData.hasChildren(['nome', 'latitude', 'longitude'])",
+            "nome":      { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 40" },
+            "latitude":  { ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90" },
+            "longitude": { ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180" }
+          }
+        }
+      }
+    }
+  }
+}

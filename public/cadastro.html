@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Criar conta · Estação Meteorológica</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen font-sans text-ink px-6 py-10">
+  <main class="w-full max-w-md mx-auto">
+
+    <form id="cadastro-form" class="bg-panel rounded-2xl p-8 flex flex-col gap-4">
+      <div>
+        <h1 class="font-display text-2xl font-semibold">Criar conta</h1>
+        <p class="text-slate text-sm mt-1">Cada conta tem o seu próprio painel: suas leituras e localizações só aparecem para você.</p>
+      </div>
+
+      <input id="cad-nome" type="text" placeholder="Seu nome" autocomplete="name" maxlength="40" required
+        class="bg-panel2 rounded-lg px-4 py-2.5 text-ink placeholder:text-slate outline-none focus:ring-1 focus:ring-amber">
+      <input id="cad-email" type="email" placeholder="E-mail" autocomplete="email" required
+        class="bg-panel2 rounded-lg px-4 py-2.5 text-ink placeholder:text-slate outline-none focus:ring-1 focus:ring-amber">
+      <input id="cad-senha" type="password" placeholder="Senha (mínimo 6 caracteres)" autocomplete="new-password" required
+        class="bg-panel2 rounded-lg px-4 py-2.5 text-ink placeholder:text-slate outline-none focus:ring-1 focus:ring-amber">
+      <input id="cad-senha2" type="password" placeholder="Repita a senha" autocomplete="new-password" required
+        class="bg-panel2 rounded-lg px-4 py-2.5 text-ink placeholder:text-slate outline-none focus:ring-1 focus:ring-amber">
+
+      <p id="cadastro-erro" class="text-alert text-sm min-h-[1.25rem]"></p>
+      <button id="cad-enviar" type="submit" class="bg-amber text-night font-display font-semibold rounded-lg py-2.5">Criar conta</button>
+      <a href="index.html" class="text-teal text-sm hover:underline text-center">Já tenho conta</a>
+    </form>
+
+    <section class="bg-panel rounded-2xl p-6 mt-4">
+      <p class="font-display text-lg">Depois, configure a sua placa</p>
+      <ol class="list-decimal pl-5 mt-3 flex flex-col gap-2 text-sm text-slate">
+        <li>Ligue a placa. Na primeira vez ela abre sozinha uma rede Wi-Fi chamada <span class="text-ink">Estacao-XXXX</span>.</li>
+        <li>No celular, conecte nessa rede (senha <span class="text-ink font-mono">estacao123</span>) e abra <span class="text-ink font-mono">192.168.4.1</span> no navegador.</li>
+        <li>Escolha a rede Wi-Fi de 2,4 GHz que a placa vai usar e digite o e-mail e a senha desta conta.</li>
+        <li>Toque em <span class="text-ink">Salvar</span>. A placa reinicia e as leituras aparecem no seu painel.</li>
+      </ol>
+      <p class="text-slate text-xs mt-4">Para trocar de rede depois (por exemplo, usar o hotspot do celular), segure o botão <span class="text-ink">BOOT</span> da placa por 3 segundos e repita os passos 2 a 4.</p>
+    </section>
+
+  </main>
+  <script type="module" src="js/cadastro.js"></script>
+</body>
+</html>
